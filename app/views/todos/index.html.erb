@@ -2,7 +2,7 @@
   <h2 class="text-6xl text-blue-600 font-thin text-center uppercase mb-8">
     My Todos
   </h2>
-  <div class="max-w-md w-full flex-col flex gap-5 mx-auto bg-zinc-50 py-8 px-4 border border-gray-200 rounded-md shadow-sm">
+  <div class="max-w-xl w-full flex-col flex gap-5 mx-auto bg-zinc-50 py-8 px-4 border border-gray-200 rounded-md shadow-sm">
     <% unless params[:status] == "complete" %>
       <div>
         <%= render "form", todo: Todo.new %>
