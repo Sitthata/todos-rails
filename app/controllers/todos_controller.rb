@@ -17,6 +17,7 @@ class TodosController < ApplicationController
   # GET /todos/new
   def new
     @todo = Todo.new
+    @assignees = Assignee.all
   end
 
   # GET /todos/1/edit
@@ -26,6 +27,7 @@ class TodosController < ApplicationController
   # POST /todos or /todos.json
   def create
     @todo = Todo.new(todo_params)
+    @assignees = Assignee.all
 
     respond_to do |format|
       if @todo.save

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_02_121758) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_02_122113) do
   create_table "assignees", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -23,5 +23,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_02_121758) do
     t.integer "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "assignee_id"
+    t.index ["assignee_id"], name: "index_todos_on_assignee_id"
   end
+
+  add_foreign_key "todos", "assignees"
 end
