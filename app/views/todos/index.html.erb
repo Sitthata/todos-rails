@@ -9,7 +9,7 @@
         data-action="click->modal#open" 
           class="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
-          Open modal
+          Open Modal
         </button>
         <%= render "shared/modal" do %>
           <h2 class="text-xl font-semibold mb-4">Modal Title</h2>
@@ -17,7 +17,13 @@
         <% end %>
       </div>
       <div>
-        <%= link_to "Add Todo",new_todo_path , class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out" %>
+        <button 
+          data-action="click->modal#open" 
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+          >
+          Add Todo
+        </button>
+        <%# <%= link_to "Add Todo",new_todo_path , class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out" %> %>
       </div>
     <% end %>
     <ul id="todos-list">
