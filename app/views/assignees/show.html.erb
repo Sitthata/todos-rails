@@ -1,15 +1,29 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
-
-    <%= render @assignee %>
-
-    <%= link_to "Edit this assignee", edit_assignee_path(@assignee), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Back to assignees", assignees_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this assignee", @assignee, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
+<section class="flex w-full flex-col">
+  <h1>Assignee Details</h1>
+  <div class="outline outline-1 bg-zinc-50 p-3">
+    <p>
+      <strong>Name:</strong>
+      <%= @assignee.name %>
+    </p>
+    <p>
+      <strong>Email:</strong>
+      <%= @assignee.email %>
+    </p>
   </div>
-</div>
+  <div>
+    <h2>Todos Assigned to <%= @assignee.name %></h2>
+    <% if @todos.any? %>
+      <ul>
+        <% @todos.each do |todo| %>
+          <li><%= link_to todo.title, todo_path(todo) %> - <%= todo.completed? ? 'Completed' : 'Pending' %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No todos assigned to this assignee.</p>
+    <% end %>
+  </div>
+  <div class="flex gap-2">
+    <%= link_to 'Edit Assignee', edit_assignee_path(@assignee), class: 'btn btn-warning' %>
+    <%= link_to 'Back to Assignees', assignees_path, class: 'btn btn-secondary' %>
+  </div>
+</section>
