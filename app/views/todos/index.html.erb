@@ -3,7 +3,7 @@
   <h2 class="text-6xl text-blue-600 font-thin text-center uppercase mb-8">
     My Todos
   </h2>
-  <%= turbo_frame_tag "todos-container", class: "max-w-md w-full flex-col flex gap-5 mx-auto bg-zinc-50 py-8 px-4 border border-gray-200 rounded-md shadow-sm" do %>
+  <div class="max-w-md w-full flex-col flex gap-5 mx-auto bg-zinc-50 py-8 px-4 border border-gray-200 rounded-md shadow-sm">
     <% unless params[:status] == "complete" %>
       <div>
         <%= render "form", todo: Todo.new %>
@@ -13,5 +13,5 @@
       <h2 class="text-xl font-bold text-blue-600">Todo List</h2>
       <%= render @todos %>
     </ul>
-  <% end %>
+  <div>
 </div>
