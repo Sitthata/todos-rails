@@ -3,6 +3,13 @@ class TodosController < ApplicationController
 
   # GET /todos or /todos.json
   def index
+    if params[:assignee_id]
+      @assignees = Assignee.find(params[:assignee_id])
+      @todos = @assignees.todos
+    else
+      @todos = Todo.all
+    end
+
     if params[:query].present?
       @todos = Todo.where("title LIKE ?", "%#{params[:query]}%")
     else
@@ -71,6 +78,6 @@ class TodosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def todo_params
-      params.require(:todo).permit(:title, :completed)
+      params.require(:todo).permit(:title, :completed, :assignee_id)
     end
 end

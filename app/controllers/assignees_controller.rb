@@ -8,10 +8,12 @@ class AssigneesController < ApplicationController
 
   # GET /assignees/1 or /assignees/1.json
   def show
+    @todos = @assignee.todos
   end
 
   # GET /assignees/new
   def new
+    @todo = Todo.new
     @assignee = Assignee.new
   end
 
@@ -21,6 +23,7 @@ class AssigneesController < ApplicationController
 
   # POST /assignees or /assignees.json
   def create
+    @todo = Todo.new(todo_params)
     @assignee = Assignee.new(assignee_params)
 
     respond_to do |format|

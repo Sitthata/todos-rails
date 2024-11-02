@@ -1,12 +1,17 @@
-<div id="<%= dom_id assignee %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= assignee.name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Email:</strong>
-    <%= assignee.email %>
-  </p>
-
+<h1>Assignees</h1>
+<%= link_to 'New Assignee', new_assignee_path, class: 'btn btn-primary mb-4' %>
+<div class="assignees">
+  <% @assignees.each do |assignee| %>
+    <div class="assignee-card border p-4 rounded mb-4 hover:bg-gray-100">
+      <h2 class="text-xl font-semibold"><%= assignee.name %></h2>
+      <p class="text-gray-600"><%= assignee.email %></p>
+      <!-- Link to assignee's todos -->
+      <%= link_to 'View Todos', assignee_todos_path(assignee), class: 'btn btn-secondary mt-2' %>
+      <!-- Optionally, show other links like edit or delete -->
+      <div class="mt-2">
+        <%= link_to 'Edit', edit_assignee_path(assignee), class: 'btn btn-warning mr-2' %>
+        <%= link_to 'Delete', assignee, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  <% end %>
 </div>
