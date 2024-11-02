@@ -1,13 +1,11 @@
-
-  <div class="w-full">
-    <h2 class="text-4xl text-green-600 font-bold text-center mb-4">
-      <%= @todo.title %>
-    </h2>
-    <p class="text-lg">
-      Completed: <%= @todo.completed ? "Yes" : "No" %>
-    </p>
-    <div class="mt-4">
-      <%= link_to "Back to Todos", todos_path, class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
-    </div>
+<div class="w-full outline outline-1 bg-zinc-50 p-5">
+  <h2 class="text-4xl text-green-600 font-bold text-center mb-4">
+    <%= @todo.title %>
+  </h2>
+  <p class="text-lg">
+    Completed: <%= @todo.completed? ? "Yes" : "No" %>
+  </p>
+  <div class="mt-4">
+    <%= link_to "Back to Todos", todos_path, class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
   </div>
-
+</div>
