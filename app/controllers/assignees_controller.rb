@@ -4,6 +4,11 @@ class AssigneesController < ApplicationController
   # GET /assignees or /assignees.json
   def index
     @assignees = Assignee.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @assignees }
+    end
   end
 
   # GET /assignees/1 or /assignees/1.json
@@ -23,7 +28,7 @@ class AssigneesController < ApplicationController
 
   # POST /assignees or /assignees.json
   def create
-    @todo = Todo.new(todo_params)
+    # @todo = Todo.new(todo_params)
     @assignee = Assignee.new(assignee_params)
 
     respond_to do |format|

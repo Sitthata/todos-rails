@@ -34,7 +34,7 @@ class TodosController < ApplicationController
   # POST /todos or /todos.json
   def create
     @todo = Todo.new(todo_params)
-    @assignees = Assignee.all
+    # @assignees = Assignee.all
 
     respond_to do |format|
       if @todo.save
